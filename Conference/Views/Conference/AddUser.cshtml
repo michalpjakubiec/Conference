@@ -1,0 +1,64 @@
+﻿@model List<Conference.Models.ConferenceUser>
+
+@{
+    ViewData["Title"] = "Add user";
+}
+
+<div class="container">
+
+    <h2>Conference</h2>
+
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control " name="Name" placeholder="Enter name" required />
+        </div>
+
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="LastName" placeholder="Enter last name" required />
+        </div>
+
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" class="form-control" name="Email" placeholder="Enter e-mail" required />
+        </div>
+
+        <div class="form-group">
+            <label>Avatar</label>
+            <input type="file" name="avatar" required>
+        </div>
+
+        <button type="submit">Add</button>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>E-mail</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <img src="~/images/@item.Avatar.FileName" height="64" width="64" />
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

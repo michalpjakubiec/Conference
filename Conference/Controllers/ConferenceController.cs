@@ -26,16 +26,13 @@ namespace Conference.Controllers
         [ValidateAntiForgeryToken()]
         public IActionResult AddUser(ConferenceUser conferenceUser)
         {
-            using (var stream = new FileStream($"wwwroot/images/{conferenceUser.Avatar.FileName}", FileMode.Create))
+            using (var stream = new FileStream($"wwwroot/images/avatars/{conferenceUser.Avatar.FileName}", FileMode.Create))
             {
                 conferenceUser.Avatar.CopyTo(stream);
             }
-
             conferenceUserList.Add(conferenceUser);
 
-            JsonSerializer serializer = new JsonSerializer { Formatting = Formatting.Indented };
-            serializer.Converters.Add(new JavaScriptDateTimeConverter());
-            serializer.NullValueHandling = NullValueHandling.Ignore;
+            JsonSerializer serializer = new JsonSerializer() { Formatting = Formatting.Indented };
             using (StreamWriter sw = new StreamWriter(@"ConferenceUsers.json"))
             {
                 serializer.Serialize(sw, conferenceUser);

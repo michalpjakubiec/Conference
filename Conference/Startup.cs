@@ -43,7 +43,7 @@ namespace Conference
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Conference}/{action=AddUser}");
             });
         }
     }

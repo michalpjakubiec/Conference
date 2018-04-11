@@ -1,0 +1,20 @@
+{
+  "Name": "a",
+  "LastName": "s",
+  "Email": "d2@2",
+  "Avatar": {
+    "ContentDisposition": "form-data; name=\"avatar\"; filename=\"Leszy_card.png\"",
+    "ContentType": "image/png",
+    "Headers": {
+      "Content-Disposition": [
+        "form-data; name=\"avatar\"; filename=\"Leszy_card.png\""
+      ],
+      "Content-Type": [
+        "image/png"
+      ]
+    },
+    "Length": 414876,
+    "Name": "avatar",
+    "FileName": "Leszy_card.png"
+  }
+}
